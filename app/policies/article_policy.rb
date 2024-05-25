@@ -12,6 +12,10 @@ class ArticlePolicy < ApplicationPolicy
     end
   end
 
+  def edit?
+    update?
+  end
+
   def update?
     user&.admin? || user&.id == record.user_id
   end

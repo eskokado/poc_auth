@@ -189,6 +189,7 @@ GEM
       railties (>= 5.2)
     rexml (3.2.8)
       strscan (>= 3.0.9)
+    rolify (6.0.1)
     rubyzip (2.3.2)
     selenium-webdriver (4.9.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -249,6 +250,7 @@ DEPENDENCIES
   pundit (~> 2.3)
   rails (~> 7.0.8, >= 7.0.8.1)
   redis (~> 4.0)
+  rolify (~> 6.0)
   selenium-webdriver
   sprockets-rails
   stimulus-rails

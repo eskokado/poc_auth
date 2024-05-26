@@ -8,8 +8,22 @@ class ArticlePolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.all
+      # if user.admin?
+      #   scope.all
+      # else
+      #   # scope.where(user: user)
+      #   [scope.first]
+      # end
+      scope.alls
     end
+  end
+
+  def new?
+    create?
+  end
+
+  def create?
+    user&.has_role? :writer
   end
 
   def edit?
@@ -17,7 +31,7 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def update?
-    user&.admin? || user&.id == record.user_id
+    user&.has_role? :editor || user&.id == record.user_id
   end
 
   def destroy?
